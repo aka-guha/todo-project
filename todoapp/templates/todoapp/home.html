@@ -1,0 +1,19 @@
+{% extends 'todoapp/base.html' %}
+{% block content %}
+<br>
+<br>
+<br>
+<div class="row justify-content-center mt-5">
+        <div class="col-md-7 text-center">
+<h4>*** Not on schedule? Get a todo woo! ***</h4>    
+<p> Create a todo scheduler list and keep a check on your activities.<br> Never miss your work, get alerts, get notifications. </p>
+    <hr style="width: 50%; color: cornsilk;">
+            {% if user.is_authenticated %}
+            <a role="button" class="btn btn-outline-primary btn-lg" href="{% url 'currenttodo' %}">Start</a>
+            {% else %}
+            <a role="button" class="btn btn-outline-primary btn-lg" href="{% url 'signupuser' %}">Start</a>
+            {% endif %}
+</div>
+</div>
+
+{% endblock %}

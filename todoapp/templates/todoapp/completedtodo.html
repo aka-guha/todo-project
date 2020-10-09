@@ -1,0 +1,25 @@
+{% extends 'todoapp/base.html' %}
+
+{% block content %}
+  <div class="row justify-content-center mt-5">
+        <div class="col-md-10">
+            {% if todos %}
+            <h2>Completed Todos</h2>
+            {% else %}
+            <h2>You have not completed any todo yet!</h2>
+            {% endif %}
+      </div>
+    </div>
+<div class="row justify-content-center mt-5">
+<div class="col-md-10">
+<div class="list-group">
+{% for todo in todos %}
+<a href="{% url 'viewtodo' todo.id %}" class="list-group-item list-group-item-action{% if todo.important %} list-group-item-danger{% endif %}"> <b> {{ todo.title }} </b> - completed on  {{ todo.completedon|date:'M j Y H:i' }} </a> 
+{% endfor %}
+    </div>
+    </div>
+</div>
+<div class="row justify-content-center mt-5">
+    <a role="button" type="button" class="btn btn-outline-success" href="{% url 'createtodo' %}">Create a New  Todo?</a>
+        </div>
+{% endblock %}
